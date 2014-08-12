@@ -1,0 +1,7 @@
+一、ListView的列表显示(显示文件列表为例).
+1.先创建json数据，或者从JsonStore中的url中获取。
+2.然后新建一个JsonStore的对象，可以把创建好的json数据对象以data的形式放入进去，也可以通过url取得json数据(但要通过load来载入)。
+3.创建ListView对象，在columns的属性中创建相关列的信息，可以通过tpl(Template)的形式来创建。
+4.可以为创建好的ListView对象修改或添加方法和事件等的操作。
+5.创建页面中显示的Panel对象。
+例子：详细见ListView中的js。

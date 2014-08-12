@@ -1,0 +1,15 @@
+********************Axis 1.4满足的包********************
+必须jar包
+axis.jar
+commons-discovery-0.2.jar
+commons-logging-1.0.4.jar
+jaxrpc.jar
+log4j-1.2.8.jar
+saaj.jar
+wsdl4j-1.5.1.jar
+
+可选jar包
+activation.jar
+mail.jar
+xalan.jar
+xmlsec-1.2.1.jar

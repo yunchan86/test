@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans>
+	<service xmlns="http://xfire.codehaus.org/config/1.0">
+		<name>HelloWorldSimple</name>
+		<namespace>webservice.xfire.simple</namespace>
+		<serviceClass>webservice.xfire.simple.HelloWorld</serviceClass>
+		<implementationClass>webservice.xfire.simple.HelloWorld</implementationClass>
+		<scope>request</scope>
+	</service>
+	<service xmlns="http://xfire.codehaus.org/config/1.0">
+		<name>AddressManager</name>
+		<namespace>webservice.xfire.selfobj.server</namespace>
+		<serviceClass>webservice.xfire.selfobj.server.AddressManager</serviceClass>
+		<implementationClass>webservice.xfire.selfobj.server.AddressManager</implementationClass>
+		<scope>request</scope>
+	</service>
+	<service xmlns="http://xfire.codehaus.org/config/1.0">
+		<name>AddressManagerMap</name>
+		<namespace>webservice.xfire.selfobj.server</namespace>
+		<serviceClass>webservice.xfire.selfobj.server.AddressManagerMap</serviceClass>
+		<implementationClass>webservice.xfire.selfobj.server.AddressManagerMap</implementationClass>
+		<scope>request</scope>
+	</service>
+	<service xmlns="http://xfire.codehaus.org/config/1.0">
+		<name>HelloWorldException</name>
+		<namespace>webservice.xfire.exception</namespace>
+		<serviceClass>webservice.xfire.exception.IHelloWorldService</serviceClass>
+		<implementationClass>webservice.xfire.exception.HelloWorldServiceImpl</implementationClass>
+		<scope>request</scope>
+	</service>
+	<service xmlns="http://xfire.codehaus.org/config/1.0">
+		<name>HelloWorldHandler</name>
+		<namespace>webservice.xfire.handlers</namespace>
+		<serviceClass>webservice.xfire.handlers.IHelloWorldService</serviceClass>
+		<implementationClass>webservice.xfire.handlers.server.HelloWorldService</implementationClass>
+		<scope>request</scope>
+		<inHandlers>
+			<handler handlerClass="webservice.xfire.handlers.server.ServerHelloWorldInHandler"></handler>
+		</inHandlers>
+		<outHandlers>
+			<handler handlerClass="webservice.xfire.handlers.server.ServerHelloWorldOutHandler"></handler>
+		</outHandlers>
+	</service>
+	<service xmlns="http://xfire.codehaus.org/config/1.0">
+		<name>FileTransport</name>
+		<namespace>webservice.xfire.filetransport</namespace>
+		<serviceClass>webservice.xfire.filetransport.IFileTransport</serviceClass>
+		<implementationClass>webservice.xfire.filetransport.server.FileTransportImpl</implementationClass>
+		<scope>request</scope>
+		<!-- 上传文件必须配置这个property -->
+		<properties>
+			<property key="mtom-enabled">true</property>
+		</properties>
+	</service>
+</beans>

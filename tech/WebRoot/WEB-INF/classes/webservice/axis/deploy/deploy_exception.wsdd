@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment name="test_exception" xmlns="http://xml.apache.org/axis/wsdd/" 
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="ExceptionCreater" provider="java:RPC">
+		<namespace>http://faults.samples</namespace>
+		<parameter name="className" value="webservice.axis.wsddexception.ExceptionCreater"/>
+		<parameter name="allowedMethod" value="*"/>
+		<parameter name="scope" value="request"/>
+		<operation name="getException" 
+		qname="operNS:getException" 
+		xmlns:operNS="getException">
+			<fault name="ServerExceptionFault" 
+			qname="fut:fault" 
+			xmlns:fut="ServerExceptionFault" 
+			type="tns:ServerException" 
+			xmlns:tns="ServerException"/>
+		</operation>
+		<typeMapping qname="myNs:ServerException" 
+		xmlns:myNs="urn:CustomerFault" 
+		type="webservice.axis.wsddexception.ServerException" 
+		serializer="org.apache.axis.encoding.ser.BeanSerializerFactory" 
+		deserializer="org.apache.axis.encoding.ser.BeanDeserializerFactory" 
+		encodingStyle="http://schemas.xmlsoap.org/soap/encoding/"/>
+	</service>
+</deployment>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+     xmlns:jaxws="http://cxf.apache.org/jaxws"
+	 xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+						http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
+     <import resource="classpath:META-INF/cxf/cxf.xml" />
+     <import resource="classpath:META-INF/cxf/cxf-extension-soap.xml" />
+     <import resource="classpath:META-INF/cxf/cxf-servlet.xml" />
+     <bean id="myInterceptor" class="webservice.cxf.interceptor.MyInterceptor"></bean>
+     <jaxws:endpoint id="webServiceHelloWorld"
+         address="helloWorld"
+         implementor="webservice.cxf.HelloWorld">
+         <jaxws:inInterceptors><ref bean="myInterceptor"/></jaxws:inInterceptors>
+     </jaxws:endpoint>
+     <!-- 以下是cxf整合spring操作bean的对象的配置 -->
+     <bean id="inInter" class="org.apache.cxf.interceptor.LoggingInInterceptor"></bean>
+     <bean id="outInter" class="org.apache.cxf.interceptor.LoggingOutInterceptor"></bean>
+     <bean id="address" class="webservice.cxf.bean.AddressManager"></bean>
+     <jaxws:server id="addressserver" serviceClass="webservice.cxf.bean.AddressManager" address="address">
+     	<jaxws:serviceBean><!-- 暴露给客户端的bean，客户端可以对该bean进行操作 -->
+     		<ref bean="address"/>
+     	</jaxws:serviceBean>
+         <jaxws:inInterceptors>
+         	<ref bean="inInter"/>
+         </jaxws:inInterceptors>
+         <jaxws:outInterceptors>
+         	<ref bean="outInter"/>
+         </jaxws:outInterceptors>
+     </jaxws:server>
+</beans>
+

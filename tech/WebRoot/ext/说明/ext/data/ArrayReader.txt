@@ -1,0 +1,6 @@
+一、通过操作ArrayReader显示数据
+1.创建Array形式的数据，类似于[['','',''],['','','']]等。
+2.创建ArrayReader对象，new Ext.data.ArrayReader({},[])，其中两个参数，前一个可以作为分页的数据，后一个则是要显示数据的名称。
+3.创建Store，并把创建的Arrayreader的对象赋给在Store中reader属性，同时loadData前面创建的Array形式的数据。
+4.创建GridPanel对象，并把Store对象赋给GridPanel中的store属性。
+示例：详细见Store文件夹中的Store.js

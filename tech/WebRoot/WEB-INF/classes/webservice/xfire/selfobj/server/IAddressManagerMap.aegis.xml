@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mappings>
+	<mapping>
+		<method name="getAddressMap">
+			<return-type componentType="webservice.xfire.selfobj.server.model.Address"/>
+		</method>
+		<method name="setAddressMap">
+			<parameter index="0" componentType="webservice.xfire.selfobj.server.model.Address"/>
+			<return-type componentType="webservice.xfire.selfobj.server.model.Address"/>
+		</method>
+	</mapping>
+</mappings>

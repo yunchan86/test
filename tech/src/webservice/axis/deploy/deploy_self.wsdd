@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<deployment name="test" xmlns="http://xml.apache.org/axis/wsdd/" 
+    xmlns:java="http://xml.apache.org/axis/wsdd/providers/java">
+	<service name="AddressManager" provider="java:RPC">
+		<parameter name="className" value="webservice.axis.wsddselfobj.AddressManager"/>
+		<parameter name="allowedMethod" value="*"/>
+		<parameter name="scope" value="request"/>
+		<!-- qname里的Address要和程序里的new QName("urn:AddressManager","Address")后面的值相同 -->
+		<beanMapping qname="myNSD:Address" 
+		xmlns:myNSD="urn:AddressManager"
+		languageSpecificType="java:webservice.axis.wsddselfobj.servermodel.Address"/>
+	</service>
+</deployment>

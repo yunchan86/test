@@ -1,0 +1,4 @@
+以下命令为生成axis的server-config.wsdd文件的操作
+java -Djava.ext.dirs=lib org.apache.axis.client.AdminClient deploy.wsdd -lhttp://127.0.0.1/testWeb/services/AdminService
+java -Djava.ext.dirs=lib org.apache.axis.wsdl.WSDL2Java --h
+java -Djava.ext.dirs=lib org.apache.axis.wsdl.WSDL2Java -s http://localhost/testWeb/aservices/HelloWorldWSDD?wsdl
